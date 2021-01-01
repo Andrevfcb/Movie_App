@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import Movie from './Components/Movie'
+import Movie from './Components/Movie';
 
 const API_FEATURED = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1"
 const API_SEARCH = "https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query=";
@@ -11,22 +11,21 @@ const App = () => {
   const [searchTerm, handleSearchTerm] = useState('');
 
   useEffect(() => {
-    fetch(API_FEATURED)
+    getMovies(API_FEATURED)
+  }, [])
+
+  const getMovies = (API) => {
+    fetch(API)
     .then((res) => res.json())
     .then((data) => {
       setMovies(data.results)
     })
-  }, [])
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (searchTerm) {
-    fetch(API_SEARCH + searchTerm)
-    .then((res) => res.json())
-    .then((data) => {
-    setMovies(data.results)
-    })
-
+    getMovies(API_SEARCH + searchTerm)
     handleSearchTerm('');
   }
   }
@@ -44,7 +43,7 @@ const App = () => {
         </form>
       </header>
       <div className="movies_container">
-      {movies.map((movie) => {
+      {movies.length == 0 ? "The movie cannot be found :(" : movies.map((movie) => {
        return <Movie key={movie.id} {...movie}/>
       })}
     </div>

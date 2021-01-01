@@ -35,6 +35,7 @@ header input:focus {
   align-items: center;
   flex-wrap: wrap;
   background-color: rgb(29, 48, 156);
+  min-height: 100vh;
 }
 
 .movie {
@@ -53,19 +54,22 @@ header input:focus {
 }
 
 .movie img {
+object-fit: cover;
 width: 100%;
-max-height: 85%;
+height: 85%;
 }
 
 .movie_information {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 1rem;
-  font-size: 10px;
+  margin: 0.5rem;
+  font-size: 11px;
+  
 }
 
 .movie_information h3 {
+  padding-right: 20px;
   margin: 0;
   color: white;
 }
@@ -78,7 +82,6 @@ max-height: 85%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
   position: absolute;
   bottom: 0;
   left: 0;
@@ -90,8 +93,30 @@ max-height: 85%;
   transition: transform 0.5s ease-in-out;
   overflow: auto;
   max-height: 100%;
+  width: 100%;
 }
 
 .movie_description h2 {
   margin: 10px;
+}
+
+.tag {
+  background-color: rgb(29, 48, 156);
+  padding: 0.5rem;
+  min-width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.green {
+  color: rgb(15, 196, 9);
+}
+
+.orange {
+  color: orange;
+}
+
+.red {
+  color: red;
 }
