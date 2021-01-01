@@ -5,6 +5,30 @@
   font-family: 'poppins';
 }
 
+header {
+  padding: 20px;
+  background-color: rgb(40, 66, 211);
+  display: flex;
+  justify-content: space-between;
+}
+
+header h1 {
+  padding-left: 20%;
+}
+
+header input {
+  color: white;
+  background-color: rgb(40, 66, 211);
+  border: 2px solid rgb(29, 48, 156);
+  border-radius: 50px;
+  font-size: 1rem;
+  padding: 0.5rem 1.5rem;
+}
+
+header input:focus {
+  outline: none;
+}
+
 .movies_container {
   display: flex;
   justify-content: center;
@@ -15,6 +39,7 @@
 
 .movie {
   width: 250px;
+  height: 400px;
   margin: 1rem;
   background-color: rgb(40, 66, 211);
   border-radius: 3px;
@@ -28,7 +53,8 @@
 }
 
 .movie img {
-max-width: 100%;
+width: 100%;
+max-height: 85%;
 }
 
 .movie_information {
@@ -56,8 +82,11 @@ max-width: 100%;
   position: absolute;
   bottom: 0;
   left: 0;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  box-shadow: 0px -3px 5px rgba(0, 0, 0, 0.1);
   background-color: white;
-  transform: translateY(100%);
+  transform: translateY(102%);
   transition: transform 0.5s ease-in-out;
   overflow: auto;
   max-height: 100%;
